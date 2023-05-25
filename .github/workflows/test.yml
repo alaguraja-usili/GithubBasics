@@ -10,6 +10,9 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: checkout source code 
         uses: actions/checkout@v3
+        
+      - name: error line
+        run: hgyrfg
       
       - name: Run a inline script
         run: |
@@ -20,12 +23,13 @@ jobs:
    Explore-Github-Actions-windows-latest:
     runs-on: windows-latest
     needs: Explore-Github-Actions-ubuntu-latest
+    if: ${{ always() }}
     steps:
       - uses: actions/checkout@v3
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - name: checkout source code 
         uses: actions/checkout@v3
-      
+        
       - name: Run a inline script
         run: |
           mkdir newfolder
