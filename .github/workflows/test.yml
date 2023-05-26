@@ -1,7 +1,7 @@
 name: GitHub Actions Basics
 on: [push] 
 jobs:
-   Explore-Github-Actions-ubuntu-latest:
+   Explore-Github-Actions-UBUNTU-latest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
         if: ${{ failure() }}
         run: echo "One of the steps seems to be failure"
      
-   Explore-Github-Actions-windows-latest:
+   Explore-Github-Actions-WINDOWS-latest:
     runs-on: windows-latest
     needs: Explore-Github-Actions-ubuntu-latest
     if: ${{ always() }}
@@ -44,3 +44,11 @@ jobs:
         run: sh ./run.sh
         shell: pwsh
      
+   Explore-Github-Actions-MACOS-latest:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      
