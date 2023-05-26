@@ -13,12 +13,16 @@ jobs:
         
       - name: error line
         run: hgyrfg
-      
+          
       - name: Run a inline script
         run: |
           mkdir newfolder
           ls -l
         shell: bash
+        
+      - name: Execute during failure
+        if: ${{ failure() }}
+        run: echo "One of the steps seems to be failure"
      
    Explore-Github-Actions-windows-latest:
     runs-on: windows-latest
